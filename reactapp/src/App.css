@@ -5,7 +5,8 @@
 }
 
 body{
-    background: linear-gradient( to bottom right, #4C0033 ,75%,#AF0171);
+    background: #AF0171;
+    background-repeat: no-repeat;
     height: 100vh;
     color: white;
 }

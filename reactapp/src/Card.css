@@ -19,6 +19,7 @@ article:hover{
 
 article header{
     background: rgb(131, 65, 79);
+
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,18 +1,15 @@
 import "./Card.css";
 
-const Card1 = () => {
-    const hallo = () => {
-            console.log("ik ben kaart 1");
-        }
+const Card1 = (props) => {
+    console.log(props);
     return(
-        
 
-        <article onClick={hallo}>
+        <article onClick={props.muisclick}>
             <header>
-                <h2>Eerste kaartje</h2>
+                <h2>{props.title || "mijn eigen titel"}</h2>
             </header>  
             <section>
-                blah blah blah
+                <p>{props.text || "kekw"}</p>
             </section>
         </article>
     );
