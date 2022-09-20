@@ -1,0 +1,32 @@
+.card{
+    width: 40rem;
+    height: 60rem;
+    border: 0.3rem  #A77979 solid;
+    border-radius: 10px;
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__figure{
+    height: 40%;
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.card__figure img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.card__div{
+    height: 60%;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 2rem;
+}

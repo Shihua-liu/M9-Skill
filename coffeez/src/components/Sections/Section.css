@@ -1,0 +1,24 @@
+.section{
+    padding-bottom: 4rem;
+}
+
+.section__header{
+    padding: 4rem; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    color: #eee;
+    font-size: 6rem;
+    gap: 2rem;
+}
+
+.section__h2{
+    font-family: 'Ms Madi', cursive;
+}
+
+.section__wrapper{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
