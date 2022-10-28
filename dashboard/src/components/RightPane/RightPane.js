@@ -1,9 +1,13 @@
 import "./RightPane.css"
-
-const RightPane = ({ headertext, buttonsymbol, buttontext, productCards, onButtonclick }) => {
+import Productcard from "../productcard/productcard";
+const RightPane = ({ headertext, buttonsymbol, buttontext, productCards, onButtonclick, }) => {
 
     let addproduct = () =>{
         onButtonclick();
+    }
+
+    let oncardclicked= (idfromcard) =>{
+        console.log("kaart id" + idfromcard)
     }
 
     let productcardsTobeRenderd = productCards.map(product => {
@@ -15,13 +19,10 @@ const RightPane = ({ headertext, buttonsymbol, buttontext, productCards, onButto
                 </li>
             );
         }
-        return (<li key={product.id} className="producten__item">
-           <img className="product__img" src={product.img} alt={product.name} />
-           <div className="product__fade">
-            <p className="producten__imgtext">{product.name}</p>
-           </div>
-           
-        </li>);
+
+        return (
+            <Productcard oncardclicked={oncardclicked} key={product.id} id={product.id} name={product.name} productimg={product.img}/>
+        );
 
     });
 

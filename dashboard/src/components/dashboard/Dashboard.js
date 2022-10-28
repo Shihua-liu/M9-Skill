@@ -50,6 +50,10 @@ class Dashboard extends React.Component {
         })
     }
 
+    oncardclicked= () =>{
+        this.setState({open: !this.state.open})
+    }
+
     render() {
         
         if (this.state.open === true) {
@@ -57,7 +61,7 @@ class Dashboard extends React.Component {
 
                 <article className="dashboard">
                     <LeftPane navitems={navitemsobject.navitems} btntxt="PREMIUM" />
-                    <RightPane onButtonclick={this.onButtonclicked} productCards={this.state.productCards} headertext="Mijn producten" buttonsymbol="+" buttontext="Voeg product toe" />
+                    <RightPane oncardclicked={this.oncardclicked} onButtonclick={this.onButtonclicked} productCards={this.state.productCards} headertext="Mijn producten" buttonsymbol="+" buttontext="Voeg product toe" />
                 </article>
             )
         }

@@ -31,6 +31,12 @@
     border-radius: 1rem;
     flex-direction: column;
     position: relative;
+    transition: 0.5s all;
+}
+
+.producten__item--gray:hover {
+    cursor: pointer;
+    filter: grayscale(1);
 }
 
 .product__img{
