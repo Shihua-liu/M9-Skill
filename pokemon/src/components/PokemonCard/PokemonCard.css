@@ -1,0 +1,127 @@
+.pokemoncard {
+    width: 40rem;
+    height: 45rem;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.pokemoncard__header {
+    height: 20%;
+}
+
+.pokemoncard__title {
+    font-size: 200%;
+    font-weight: 400;
+}
+
+.pokemoncard__labelwrapper {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pokemoncard__type {
+    font-size: 75%;
+    background: yellow;
+    padding: 0.5rem;
+    border-radius: 2.5rem;
+    width: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #eee;
+}
+
+.pokemoncard__type--Fire {
+    background-color: #FF8D29;
+}
+
+.pokemoncard__type--Bug{
+    background: #9CFF2E;
+}
+
+.pokemoncard__type--Normal{
+    background: #91C483;
+}
+
+
+.pokemoncard__type--Poison{
+    background: #2E0249;
+}
+.pokemoncard__type--Psychic{
+    background: #C70A80;
+}
+.pokemoncard__type--Fairy{
+    background: #F637EC;
+}
+
+.pokemoncard__section {
+    height: 60%;
+}
+
+.pokemoncard__figure {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemoncard__image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.pokemoncard__h3wrapper {
+    height: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.pokemoncard__hp {
+    font-weight: 400;
+    font-size: 90%;
+}
+
+.pokemoncard__footer {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.pokemoncard__button {
+    border: none;
+    background: none;
+    font-size: 100%;
+    padding: 0.5rem 4rem;
+    border-radius: 1rem;
+    color: #eee;
+    width: 50%;
+    flex-grow: 1;
+    text-transform: uppercase;
+}
+
+.pokemoncard__button--attack {
+    background: #B20600;
+}
+
+.pokemoncard__button--catch {
+    background: #38E54D;
+}
+
+.pokemoncard__button--attack:hover {
+    background: hsl(2, 100%, 25%);
+}
+
+.pokemoncard__button--catch:hover {
+    background: hsl(127, 77%, 46%);
+}
+
+@media screen and (max-width:62.5rem) {
+    .pokemoncard{
+        width: 100%;
+        gap: 2rem;
+    }
+}

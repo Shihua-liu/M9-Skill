@@ -1,0 +1,51 @@
+.muziek{
+    background: #256D85;
+    color: #DFF6FF;
+    width: 40rem;
+    min-height: 60rem;
+    box-shadow: 0 2rem 2rem 0 rgb(6, 40, 61, 0.4) ;
+    border-radius: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 5rem 0rem;
+}
+
+.muziek__header{
+    height: 20%;
+    display: flex;
+    align-items: center;
+    padding: 2.5rem;
+   justify-content: center;
+}
+
+.muziek__heading{
+    font-family: 'Anton', sans-serif;
+    font-size: 300%;
+    font-weight: 400;
+}
+
+.muziek__list{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1.7rem;
+}
+
+.muziek__item{
+    list-style: none;
+    padding: 2rem;
+    border-bottom: 0.2rem solid rgba(0, 0, 0, 0.2);
+}
+
+.muziek__item:hover{
+    background: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.muziek__item--done{
+display: none;
+    transition: 1s ease-in-out;
+    
+}

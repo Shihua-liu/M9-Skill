@@ -1,0 +1,30 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    color: #eee;
+}
+
+body{
+    font-size: 2rem;
+    font-family: sans-serif;
+    color: #eee;
+    padding: 4rem;
+    background: #585858;
+    min-height: 100vh;
+}
+
+
+#root{
+    display: flex;
+    justify-content: center;
+}
+
+a, a:visited, a:active, a:link{
+    color: #eee;
+    text-decoration: none;
+}

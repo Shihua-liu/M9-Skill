@@ -1,0 +1,14 @@
+.pokemoncardwrapper{
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+@media screen and (max-width:62.5rem) {
+    .pokemoncard{
+        width: 100%;
+        gap: 2rem;
+    }
+}

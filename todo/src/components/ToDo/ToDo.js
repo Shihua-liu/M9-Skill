@@ -41,7 +41,7 @@ class ToDo extends React.Component {
             {
                 name: InputFromInputComponent,
                 done: false,
-                id: 100
+                id: this.state.tasks.lenght + 1
             }
             
         ]
