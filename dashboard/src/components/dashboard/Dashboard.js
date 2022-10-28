@@ -4,10 +4,10 @@ import Popup from "../popup/popup"
 import LeftPane from "../LeftPane/LeftPane"
 import RightPane from "../RightPane/RightPane"
 
-import Bimg from "../../img/bloem.jpg"
-import Cimg from "../../img/cola.jpg"
-import Lucht from "../../img/lucht.jpg"
-import Nuts from "../../img/nuts.jpg"
+import productsobject from "../data/products"
+import navitemsobject from "../data/navitems"
+
+import chooseimage from "../../helpers/chooseimg"
 
 import "./Dashboard.css"
 
@@ -24,47 +24,22 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        let productCards = [
-            {
-                name: "placeholder",
-            },
-
-            {
-                name: "flowers",
-                img: Bimg
-
-            },
-            {
-                name: "cola",
-                img: Cimg
-            },
-
-        ];
-        this.setState({ productCards: productCards })
+        
+        this.setState({ productCards: productsobject.products })
     }
 
 
     addbuttonclicked = (inputfrompopup) => {
-        let tobeaddedimg;
-        switch (inputfrompopup) {
-            case ("lucht"):
-                tobeaddedimg = Lucht
-                break;
-            case ("cola"):
-                tobeaddedimg = Cimg
-                break;
-            case ("bloemen"):
-                tobeaddedimg = Bimg
-                break;
-            case ("Nuts"):
-                tobeaddedimg = Nuts
-                break;
-        }
+
+
+
+        let imgfromhelper = chooseimage(inputfrompopup)
 
         let tobeadded = [
             {
+                id: this.state.productCards.length + 1,
                 name: inputfrompopup,
-                img: tobeaddedimg
+                img: imgfromhelper
             }
         ]
 
@@ -76,33 +51,12 @@ class Dashboard extends React.Component {
     }
 
     render() {
-        let navitems = [
-            {
-                name: "Home",
-                msg: 0,
-            },
-            {
-                name: "Facture",
-                msg: 2,
-            },
-            {
-                name: "bestellingen",
-                msg: 3,
-            },
-            {
-                name: "Retour",
-                msg: 0,
-            },
-            {
-                name: "contact",
-                msg: 1,
-            },
-        ];
+        
         if (this.state.open === true) {
             return (
 
                 <article className="dashboard">
-                    <LeftPane navitems={navitems} btntxt="PREMIUM" />
+                    <LeftPane navitems={navitemsobject.navitems} btntxt="PREMIUM" />
                     <RightPane onButtonclick={this.onButtonclicked} productCards={this.state.productCards} headertext="Mijn producten" buttonsymbol="+" buttontext="Voeg product toe" />
                 </article>
             )
