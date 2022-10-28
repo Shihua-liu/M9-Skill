@@ -8,6 +8,13 @@ class popup extends React.Component {
         this.state = { input: "" }
     }
 
+    componentDidMount(){
+       
+        this.setState({ input: this.props.cardclicked.name})
+        
+        
+    }
+
     input = (event) => {
         this.setState({input: event.target.value})
     }
