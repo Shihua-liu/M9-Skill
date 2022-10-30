@@ -18,22 +18,32 @@ class popup extends React.Component {
     input = (event) => {
         this.setState({input: event.target.value})
     }
-    updateproducts = () =>{
+    addproducts = () =>{
         if(this.state.input !== ""){
             this.props.addbuttonclicked(this.state.input)
         }
         
     }
 
+    editproducts = () =>{
+        console.log("edit")
+    }
+
     render() {
+        let button = <button onClick={this.addproducts} className="popup__button">Voeg toe</button>
+            if(this.props.editmode === true){
+                button = <button onClick={this.editproducts} className="popup__button">Edit</button>
+            }
         return (
             <article className="popup">
                 <div className="popup__wrapper">
                     <label htmlFor="name" className="popup__label">Naam:</label>
                     <input onChange={this.input} value={this.state.input} type="text" className="popup__input" id="name" />
+
+                    
                 </div>
 
-                <button onClick={this.updateproducts} className="popup__button">Voeg toe</button>
+                {button}
             </article>
 
         );

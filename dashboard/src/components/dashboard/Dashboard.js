@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { productCards: [], open: true, cardclicked:{}};
+        this.state = { productCards: [], open: true, cardclicked: {}, editmode: false };
     }
 
     onButtonclicked = () => {
@@ -24,7 +24,7 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        
+
         this.setState({ productCards: productsobject.products })
     }
 
@@ -50,29 +50,37 @@ class Dashboard extends React.Component {
         })
     }
 
-    oncardclicked = (idfromcard) =>{
+    oncardclicked = (idfromcard) => {
+        if (!this.state.productCards[idfromcard - 1].name === "placeholder") {
+            this.setState({ editmode: true })
+        }
+        else {
+            this.setState({
+                editmode: false,
 
+            })
+        }
         this.setState({
-            open: !this.state.open, 
+            editmode: true,
+            open: !this.state.open,
             cardclicked: this.state.productCards[idfromcard - 1],
         })
     }
+        render() {
+            
+            if (this.state.open === true) {
+                return (
 
-    render() {
-        console.log(this.state.cardclicked)
-        if (this.state.open === true) {
+                    <article className="dashboard">
+                        <LeftPane navitems={navitemsobject.navitems} btntxt="PREMIUM" />
+                        <RightPane onproductcardclicked={this.oncardclicked} onButtonclick={this.onButtonclicked} productCards={this.state.productCards} headertext="Mijn producten" buttonsymbol="+" buttontext="Voeg product toe" />
+                    </article>
+                )
+            }
             return (
-
-                <article className="dashboard">
-                    <LeftPane navitems={navitemsobject.navitems} btntxt="PREMIUM" />
-                    <RightPane onproductcardclicked={this.oncardclicked} onButtonclick={this.onButtonclicked} productCards={this.state.productCards} headertext="Mijn producten" buttonsymbol="+" buttontext="Voeg product toe" />
-                </article>
+                <Popup editmode={this.state.editmode} cardclicked={this.state.cardclicked} addbuttonclicked={this.addbuttonclicked} />
             )
         }
-        return (
-            <Popup cardclicked={this.state.cardclicked} addbuttonclicked={this.addbuttonclicked} />
-        )
     }
-}
 
 export default Dashboard

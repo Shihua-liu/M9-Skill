@@ -5,7 +5,7 @@ const RightPane = ({ headertext, buttonsymbol, buttontext, productCards, onButto
 
 
     let oncardclicked= (idfromcard) =>{
-        console.log("kaart id" + idfromcard)
+        
         onproductcardclicked(idfromcard)
     }
 
