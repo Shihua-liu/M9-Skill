@@ -4,10 +4,10 @@ import Popup from "../popup/popup"
 import LeftPane from "../LeftPane/LeftPane"
 import RightPane from "../RightPane/RightPane"
 
-import Bimg from "../../img/bloem.jpg"
-import Cimg from "../../img/cola.jpg"
-import Lucht from "../../img/lucht.jpg"
-import Nuts from "../../img/nuts.jpg"
+import productsobject from "../data/products"
+import navitemsobject from "../data/navitems"
+
+import chooseimage from "../../helpers/chooseimg"
 
 import "./Dashboard.css"
 
@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { productCards: [], open: true, };
+        this.state = { productCards: [], open: true, cardclicked: {}, editmode: false };
     }
 
     onButtonclicked = () => {
@@ -24,47 +24,22 @@ class Dashboard extends React.Component {
     }
 
     componentDidMount() {
-        let productCards = [
-            {
-                name: "placeholder",
-            },
 
-            {
-                name: "flowers",
-                img: Bimg
-
-            },
-            {
-                name: "cola",
-                img: Cimg
-            },
-
-        ];
-        this.setState({ productCards: productCards })
+        this.setState({ productCards: productsobject.products })
     }
 
 
     addbuttonclicked = (inputfrompopup) => {
-        let tobeaddedimg;
-        switch (inputfrompopup) {
-            case ("lucht"):
-                tobeaddedimg = Lucht
-                break;
-            case ("cola"):
-                tobeaddedimg = Cimg
-                break;
-            case ("bloemen"):
-                tobeaddedimg = Bimg
-                break;
-            case ("Nuts"):
-                tobeaddedimg = Nuts
-                break;
-        }
+
+
+
+        let imgfromhelper = chooseimage(inputfrompopup)
 
         let tobeadded = [
             {
+                id: this.state.productCards.length + 1,
                 name: inputfrompopup,
-                img: tobeaddedimg
+                img: imgfromhelper
             }
         ]
 
@@ -75,40 +50,48 @@ class Dashboard extends React.Component {
         })
     }
 
+    editbuttonclicked = (inputfrompopup) => {
+        let productcards = this.state.productCards
+        let newstate = productcards.map(product => {
+            if (this.state.cardclicked.id === product.id) {
+                product.name = inputfrompopup
+                return product
+            }
+            else {
+                return product
+            }
+        })
+        this.state({productcards: newstate, open: true,})
+    }
+
+    oncardclicked = (idfromcard) => {
+        if (this.state.productCards[idfromcard - 1].name === "placeholder") {
+            this.setState({ editmode: false })
+        }
+        else {
+            this.setState({
+                editmode: true,
+
+            })
+        }
+        this.setState({
+            open: !this.state.open,
+            cardclicked: this.state.productCards[idfromcard - 1],
+        })
+    }
     render() {
-        let navitems = [
-            {
-                name: "Home",
-                msg: 0,
-            },
-            {
-                name: "Facture",
-                msg: 2,
-            },
-            {
-                name: "bestellingen",
-                msg: 3,
-            },
-            {
-                name: "Retour",
-                msg: 0,
-            },
-            {
-                name: "contact",
-                msg: 1,
-            },
-        ];
+
         if (this.state.open === true) {
             return (
 
                 <article className="dashboard">
-                    <LeftPane navitems={navitems} btntxt="PREMIUM" />
-                    <RightPane onButtonclick={this.onButtonclicked} productCards={this.state.productCards} headertext="Mijn producten" buttonsymbol="+" buttontext="Voeg product toe" />
+                    <LeftPane navitems={navitemsobject.navitems} btntxt="PREMIUM" />
+                    <RightPane onproductcardclicked={this.oncardclicked} onButtonclick={this.onButtonclicked} productCards={this.state.productCards} headertext="Mijn producten" buttonsymbol="+" buttontext="Voeg product toe" />
                 </article>
             )
         }
         return (
-            <Popup addbuttonclicked={this.addbuttonclicked} />
+            <Popup editbuttonclicked={this.editbuttonclicked} editmode={this.state.editmode} cardclicked={this.state.cardclicked} addbuttonclicked={this.addbuttonclicked} />
         )
     }
 }

@@ -61,3 +61,15 @@
     cursor: pointer;
     background: #585858;
 }
+
+@media screen and (max-width:62.5rem){
+    .dashboard__wrapper{
+        padding: 2.5rem;
+        border-radius: 5rem;
+        display: flex;
+        align-items: center;
+    }
+    .nav__btn{
+        margin: 2rem;
+    }
+}
