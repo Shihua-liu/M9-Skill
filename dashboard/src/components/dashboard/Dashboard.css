@@ -1,10 +1,17 @@
-.dashboard{
+.dashboard {
     width: 100%;
-    min-height: 90vh;
+    min-height: 100vh;
     background-color: #3c4048;
     display: grid;
     grid-template-columns: 30% 70%;
     border-radius: 5rem;
     grid-template-rows: auto;
     grid-auto-rows: 40rem;
+}
+
+@media screen and (max-width:62.5rem) {
+    .dashboard {
+        display: flex;
+        flex-direction: column;
+    }
 }

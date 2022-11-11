@@ -11,7 +11,7 @@ const products = [
 
         {
             id:2,
-            name: "flowers",
+            name: "bloemen",
             img: Bimg
 
         },
